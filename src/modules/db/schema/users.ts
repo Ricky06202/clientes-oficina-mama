@@ -1,7 +1,7 @@
-import { int, mysqlTable, serial, varchar } from 'drizzle-orm/mysql-core'
+import { int, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
 
 export const users = mysqlTable('users_table', {
-	id: serial().primaryKey(),
+	id: int().primaryKey().autoincrement(),
 	name: varchar({ length: 255 }).notNull(),
 	age: int().notNull(),
 	email: varchar({ length: 255 }).notNull().unique(),
